@@ -188,7 +188,7 @@ type Geometry struct {
 	cval C.OGRGeometryH
 }
 
-//Create a geometry object from its well known binary representation
+// Create a geometry object from its well known binary representation
 func CreateFromWKB(wkb []uint8, srs SpatialReference, bytes int) (Geometry, error) {
 	cString := unsafe.Pointer(&wkb[0])
 	var newGeom Geometry
@@ -197,7 +197,7 @@ func CreateFromWKB(wkb []uint8, srs SpatialReference, bytes int) (Geometry, erro
 	).Err()
 }
 
-//Create a geometry object from its well known text representation
+// Create a geometry object from its well known text representation
 func CreateFromWKT(wkt string, srs SpatialReference) (Geometry, error) {
 	cString := C.CString(wkt)
 	defer C.free(unsafe.Pointer(cString))
@@ -207,7 +207,7 @@ func CreateFromWKT(wkt string, srs SpatialReference) (Geometry, error) {
 	).Err()
 }
 
-//Create a geometry object from its GeoJSON representation
+// Create a geometry object from its GeoJSON representation
 func CreateFromJson(_json string) Geometry {
 	cString := C.CString(_json)
 	defer C.free(unsafe.Pointer(cString))
@@ -517,6 +517,12 @@ func (geom Geometry) Boundary() Geometry {
 // Compute convex hull for the geometry
 func (geom Geometry) ConvexHull() Geometry {
 	newGeom := C.OGR_G_ConvexHull(geom.cval)
+	return Geometry{newGeom}
+}
+
+// Compute convex hull for the geometry
+func (geom Geometry) ConcaveHull() Geometry {
+	newGeom := C.OGR_G_ConcaveHull(geom.cval)
 	return Geometry{newGeom}
 }
 
