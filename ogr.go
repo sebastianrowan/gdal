@@ -522,7 +522,7 @@ func (geom Geometry) ConvexHull() Geometry {
 
 // Compute concave hull for the geometry
 func (geom Geometry) ConcaveHull(dfRatio float64, bAllowHoles bool) Geometry {
-	newGeom := C.OGR_G_ConcaveHull(geom.cval, C.double(dfRatio), bAllowHoles)
+	newGeom := C.OGR_G_ConcaveHull(geom.cval, C.double(dfRatio), C.bool(bAllowHoles))
 	return Geometry{newGeom}
 }
 
