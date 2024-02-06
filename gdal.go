@@ -125,29 +125,29 @@ const (
 )
 
 var (
-	ErrDebug   					= errors.New("Debug Error")
-	ErrWarning 					= errors.New("Warning Error")
-	ErrFailure 					= errors.New("Failure Error")
-	ErrFatal  					= errors.New("Fatal Error")
-	ErrIllegal 					= errors.New("Illegal Error")
-	ErrNotEnoughData 			= errors.New("Not Enough Data")
-	ErrNotEnoughMemory 			= errors.New("Not Enough Memory")
-	ErrUnsupportedGeometryType 	= errors.New("Unsupported Geometry Type")
-	ErrUnsupportedOperation 	= errors.New("Unsupported Operation")
-	ErrCorruptData 				= errors.New("Corrupt Data")
-	ErrUnsupportedSRS 			= errors.New("Unsupported SRS")
-	ErrInvalidHandle			= errors.New("Invalid Handle")
-	ErrNonExistingFeature 		= errors.New("Non Existing Feature")
+	ErrDebug                   = errors.New("Debug Error")
+	ErrWarning                 = errors.New("Warning Error")
+	ErrFailure                 = errors.New("Failure Error")
+	ErrFatal                   = errors.New("Fatal Error")
+	ErrIllegal                 = errors.New("Illegal Error")
+	ErrNotEnoughData           = errors.New("Not Enough Data")
+	ErrNotEnoughMemory         = errors.New("Not Enough Memory")
+	ErrUnsupportedGeometryType = errors.New("Unsupported Geometry Type")
+	ErrUnsupportedOperation    = errors.New("Unsupported Operation")
+	ErrCorruptData             = errors.New("Corrupt Data")
+	ErrUnsupportedSRS          = errors.New("Unsupported SRS")
+	ErrInvalidHandle           = errors.New("Invalid Handle")
+	ErrNonExistingFeature      = errors.New("Non Existing Feature")
 )
 
 type CPLErr int
 
 const (
-	CE_None = CPLErr(C.CE_None)
-	CE_Debug = CPLErr(C.CE_Debug)
+	CE_None    = CPLErr(C.CE_None)
+	CE_Debug   = CPLErr(C.CE_Debug)
 	CE_Warning = CPLErr(C.CE_Warning)
 	CE_Failure = CPLErr(C.CE_Failure)
-	CE_Fatal = CPLErr(C.CE_Fatal)
+	CE_Fatal   = CPLErr(C.CE_Fatal)
 )
 
 // Error handling.  The following is bare-bones, and needs to be replaced with something more useful.
@@ -170,16 +170,16 @@ func (err CPLErr) Err() error {
 type OGRErr int
 
 const (
-	OGRERR_NONE = OGRErr(C.OGRERR_NONE)
-	OGRERR_NOT_ENOUGH_DATA = OGRErr(C.OGRERR_NOT_ENOUGH_DATA)
-	OGRERR_NOT_ENOUGH_MEMORY = OGRErr(C.OGRERR_NOT_ENOUGH_MEMORY)
+	OGRERR_NONE                      = OGRErr(C.OGRERR_NONE)
+	OGRERR_NOT_ENOUGH_DATA           = OGRErr(C.OGRERR_NOT_ENOUGH_DATA)
+	OGRERR_NOT_ENOUGH_MEMORY         = OGRErr(C.OGRERR_NOT_ENOUGH_MEMORY)
 	OGRERR_UNSUPPORTED_GEOMETRY_TYPE = OGRErr(C.OGRERR_UNSUPPORTED_GEOMETRY_TYPE)
-	OGRERR_UNSUPPORTED_OPERATION = OGRErr(C.OGRERR_UNSUPPORTED_OPERATION)
-	OGRERR_CORRUPT_DATA = OGRErr(C.OGRERR_CORRUPT_DATA)
-	OGRERR_FAILURE = OGRErr(C.OGRERR_FAILURE)
-	OGRERR_UNSUPPORTED_SRS = OGRErr(C.OGRERR_UNSUPPORTED_SRS)
-	OGRERR_INVALID_HANDLE = OGRErr(C.OGRERR_INVALID_HANDLE)
-	OGRERR_NON_EXISTING_FEATURE = OGRErr(C.OGRERR_NON_EXISTING_FEATURE)
+	OGRERR_UNSUPPORTED_OPERATION     = OGRErr(C.OGRERR_UNSUPPORTED_OPERATION)
+	OGRERR_CORRUPT_DATA              = OGRErr(C.OGRERR_CORRUPT_DATA)
+	OGRERR_FAILURE                   = OGRErr(C.OGRERR_FAILURE)
+	OGRERR_UNSUPPORTED_SRS           = OGRErr(C.OGRERR_UNSUPPORTED_SRS)
+	OGRERR_INVALID_HANDLE            = OGRErr(C.OGRERR_INVALID_HANDLE)
+	OGRERR_NON_EXISTING_FEATURE      = OGRErr(C.OGRERR_NON_EXISTING_FEATURE)
 )
 
 func (err OGRErr) Err() error {
