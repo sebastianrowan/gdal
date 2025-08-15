@@ -1,4 +1,4 @@
-module github.com/dewberry/gdal
+module github.com/sebastianrowan/gdal
 
 go 1.21.3
 
